@@ -12,9 +12,6 @@ export class TestsController{
   @Get()
   async getAll(): Promise<TestsEntity[]> {
     this.logger.log("getAll", "TestsController")
-    console.log({r: this.repo.save({
-        testColumn: "test"
-      })})
     return this.repo.find({id: 1})
   }
 
