@@ -4,7 +4,7 @@ export class ConfigService {
   private readonly envConfig: { [key: string]: string };
 
   constructor(private repository: ConfigRepository) {
-    this.envConfig = repository.getConfig();
+    this.envConfig = this.repository.getConfig();
   }
 
   get(key: string): any {

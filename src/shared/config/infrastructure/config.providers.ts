@@ -5,11 +5,7 @@ import { EnvRepository } from "./env.repository";
 
 export const configProviders: Provider[] = [
   {
-    provide: ConfigRepository,
-    useClass: EnvRepository
-  },
-  {
     provide: ConfigService,
-    useClass: ConfigService
+    useValue: new ConfigService(new EnvRepository())
   }
 ]
