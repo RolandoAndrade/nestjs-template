@@ -1,0 +1,17 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "postgres",
+  "database": "test_database",
+  "password": "postgres",
+  "entities": [
+    "./dist/**/**.entity{.ts,.js}"
+  ],
+  "migrations": [
+    "etc/migrations/*{.ts,.js}"
+  ],
+  "cli": {
+    "migrationsDir": "etc/migrations"
+  }
+}

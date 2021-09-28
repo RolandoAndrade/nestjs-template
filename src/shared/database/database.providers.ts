@@ -2,6 +2,7 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { ConfigKeys } from "../config/domain/config.keys";
 import { ConfigService } from "../config/application/config.service";
 import { ConfigModule } from "../config/infrastructure/config.module";
+import { Provider } from "@nestjs/common/interfaces/modules/provider.interface";
 
 function productionConfig() {
   if (process.env.NODE_ENV === 'production') {
@@ -23,7 +24,7 @@ export const dataBaseProviders = [
     inject: [ConfigService],
     async useFactory(config: ConfigService) {
       return {
-        type: 'postgres' as any,
+        type: 'postgres' as const,
         host: config.get(ConfigKeys.DATABASE_HOST),
         username: config.get(ConfigKeys.DB_USERNAME),
         password: config.get(ConfigKeys.DB_PASSWORD),

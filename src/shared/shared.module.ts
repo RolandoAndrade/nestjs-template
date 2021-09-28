@@ -4,10 +4,9 @@ import { LoggerService } from "./logger/logger.service";
 import { DatabaseModule } from "./database/database.module";
 
 @Module({
-  imports: [ConfigModule],
+  imports: [ConfigModule, DatabaseModule],
   providers: [
     ConfigModule,
-    DatabaseModule,
     {
       provide: LoggerService,
       useValue: new Logger()
